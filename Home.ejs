@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="UserApp" >
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="/UserApp.js"></script>
+<head>
+    <link rel="stylesheet" type="text/css" href="/UserStyle.css">
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body ng-controller="UserCtr">
+<h1 class="headline">Welcome back , <%= user %> <a href="/logout">logout</a></h1>
+<table id ="ServerTable" >
+    <tr ng-repeat="servers in serverTable"  ng-init="parentIndex = $index">
+        <td class="server" ng-repeat="server in servers" id={{'server'+($index+(3*$parent.$index))}} ng-click="divhandle(this,($index+(3*$parent.$index)))">
+            <div><h1 id="ips">{{ server.ip }}</h1></div>
+           <!-- <div id="info"  ng-hide="IsHidden[$index+(3*$parent.$index)]"><br>{{'Discription:'+server.Description}}<br>{{'Virtual: '+server.IsVirtual }}<br> {{"Owened by:" +server.Owner}}<br><input type="button" ng-click="takeOwen($index+3*$parent.$index)" value="Take Ownership"/><input type="button" ng-click="takeOwen($index+3*$parent.$index)" value="List Connected users"/> </div>-->
+        </td>
+    </tr>
+
+</table>
+<div class ="line"></div>
+<div id="wrapper" hidden="true">
+    <div class="content">
+       <div id="buttons">
+        <br><button ng-click="takeOwen()">Take Ownership</button>
+        <br><button ng-click="ListUsers()">Watch online users</button>
+       </div>
+        <h1> {{ipaddress}}</h1>
+        <h2>{{msg}}</h2>
+        <h3>Owner:</h3>
+        {{owner}}
+        <h3>Description</h3>
+        {{serverinfo}}
+    </div>
+
+    <div class="otherside"> {{serverUsers}}</div>
+</div>
+<div class ="line"></div>
+
+</body>
+</html>
