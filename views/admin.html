@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app" >
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/admin.css">
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+</head>
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="/AdminApp.js"></script>
+<script>
+</script>
+
+<body ng-controller="ctrl1">
+<h1 id="headline">Admin Page </h1>
+
+
+    <form id="ServerList" >
+        <table id ="ServerTable" >
+                <tr ng-repeat="servers in serverTable"  ng-init="parentIndex = $index">
+                    <td class="server" ng-repeat="server in servers" id={{'server'+($index+(3*$parent.$index))}} ng-click="divhandle(this,($index+(3*$parent.$index)))">
+                    <div><h1>{{ server.ip }}</h1></div>
+                    <div id="info"  ng-hide="IsHidden[$index+(3*$parent.$index)]"><br>{{'Discription:'+server.Description}}</br> <br>{{'Virtual: '+server.IsVirtual }}<br> {{"Owened by:" +server.Owner}} <input type="button" ng-click="RemoveServer($index+3*$parent.$index)" value="remove"/> </div>
+                    </td>
+                </tr>
+
+    </table>
+     </form>
+<div id="horline"></div>
+<div class="wrapper">
+
+    <form id="AddServerForm" >
+    <h2>Add a Server to Database</h2>
+    <div class="IpBox" id="IpAdd">Ip address: <br><input type="text" maxlength="3" value="" name="ip" ng-model="ip[0]"/>.<input type="text" maxlength="3" value="" name="ip" ng-model="ip[1]"/>.<input type="text" maxlength="3" value="" name="ip" ng-model="ip[2]"/>.<input type="text" maxlength="3" value="" name="ip" ng-model="ip[3]"/></div>
+    <div class="owner" id="owner">Owner: <input type="text" ng-model="owner"> </input></div>
+    <div class="description" id="description">Short Description <br><input type="text" ng-model="dis"/></div>
+    <div> Is Virual?<select id="Virtual" ng-model="select" ><option value="Yes">Yes</option><option value="No">No</option></select></div>
+    <input type="button" value="Add New server" ng-click="socketConnection()"/>
+    </form>
+
+        <div class="mid" id="infodiv" hidden="true">
+
+                <button ng-click="RemoveServer()">Remove Server</button>
+            <br>
+            <br>
+                <button ng-click="ListUsers()">Set new owner</button>
+
+            <h1> {{ipaddress}}</h1>
+            <h2>{{msg}}</h2>
+            <h3>Owner:</h3>
+            {{owner}}
+            <h3>Description</h3>
+            {{serverinfo}}
+        </div>
+</div>
+
+</body>
+</html>

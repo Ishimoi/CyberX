@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="RegisterApp">
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="/RegisterApp.js"></script>
+<head>
+    <link rel="stylesheet" type="text/css" href="/LoginStyle.css">
+    <meta charset="UTF-8">
+    <title>Register Form</title>
+
+</head>
+<body>
+<div class="login-page">
+    <div class="form">
+  <form name="registerForm" ng-controller="FormCtr">
+    <div><input required placeholder="User Name" ng-model='user' name="username" ng-blur="checkuser()"/><span ng-hidden='HideUserErrMsg' > {{ ErrorMsg }}</span></div>
+    <div><input required placeholder="password" ng-model='password' name="password" ng-blur="checkpass()" type="password"/><span ng-hidden='HidePassErrMsg' > {{ ErrorMsgPass }}</span></div>
+    <div><input required placeholder="email address" ng-model='email' name="email"  type="email"/></div>
+    <button value="register" ng-click="sendform()">register</button>
+  </form>
+        </div>
+    </div>
+
+</body>
+</html>

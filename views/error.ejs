@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body>
+<h1> Login Page</h1>
+<%//for (var i=0;i<ServerList.length;i++ ) { %>
+<div ng-repeat="server in ServerList" id="Server"+$index ng-click="divhandle(this)"><input type="radio" name="server" ><%= ServerList[i].ip %> Owner: <%= ServerList[i].Owner%> </input> </div>
+<% } %>
+</body>
+</html>
