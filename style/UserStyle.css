@@ -1,0 +1,125 @@
+* {font-family: "Arial Black" ,sans-serif;}
+h1.headline {
+    margin:auto;
+    width: auto;
+    color:white;
+    background: black;
+    text-align: center;
+}
+.headline a{
+    font-size: 30px;
+    position: absolute;
+    right: 30px;
+    background: white;
+    color: black;
+    border-radius: 12px;
+    border:0.5px solid black;
+
+}
+.headline a:hover{
+    background: black;
+    color: white;
+
+}
+#ips{
+    color: #76b852;
+    font-size: 15px;
+    text-align:center;
+}
+
+.server {
+
+    background-color: white;
+    width: 100px;
+    padding: 15px;
+    border: 2px solid black;
+    margin: 15px;
+}
+.serverChosen {
+    background-color:greenyellow;
+    color : black;
+    width: 100px;
+    padding: 15px;
+    border: 2px solid black;
+    margin: 15px;
+}
+
+.serverChosen #ips {
+    color: black;
+}
+.server:hover {
+    background-color: black;
+    color : white;
+    width: 100px;
+    padding: 15px;
+    border: 2px solid black;
+    margin: 15px;
+}
+table {
+    font-size:small;
+    margin: auto;
+    width: 60%;
+    /*/padding: 10px;*/
+
+}
+div.line {
+    position: absolute;
+    width: 100%;
+    border-bottom: 4px solid black;
+    height: 1px;
+}
+div.verticalline{
+    width: 2%;
+   /* padding: 0px 0px 0px 0px 0px;
+    margin-top: 0px;*/
+    height: 100%;
+    border: 2px solid black;
+    float: left;
+
+}
+div.content{
+    position: absolute;
+    width: 50%;
+    margin: 0px 0px 0px 0px ;
+    padding: 0px 0px 0px 0px;
+    float: left;
+    height: 100%;
+    border-right: 2px solid black;
+}
+div.content #buttons{
+    color: darkorange;
+    position: absolute;
+    right: 200px;
+    top: 80px;
+
+}
+#wrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* add this to contain floated children */
+}
+button {
+    border-radius: 12px;
+    margin-top: 20px;
+    width: 100%;
+    font-size: large;
+    background-color: white;
+    color: black;
+    border: 0.5px solid green; /* Green */
+}
+button:hover {
+    font-size:large;
+    background-color: black;
+    color: white;
+    border: 0.5px solid green; /* Green */
+}
+div.otherside{
+    position: absolute;
+    right: 700px;
+    top:50px;
+    left: 900px;
+    font-size :30px;
+
+
+}
